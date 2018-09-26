@@ -1,0 +1,12 @@
+FROM sampx/tomcat-8.5
+LABEL MAINTAINER=xuyf75@chinaunicom.cn
+
+WORKDIR /root
+
+RUN rm -rf $TOMCAT_HOME/webapps/*
+
+COPY soft/pinpoint-collector-1.8.0.war $TOMCAT_HOME/webapps/
+
+RUN cd $TOMCAT_HOME/webapps && unzip -d ROOT pinpoint-collector-1.8.0.war && rm -f pinpoint-collector-1.8.0.war
+
+CMD ["catalina.sh","run"]

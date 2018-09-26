@@ -1,0 +1,11 @@
+FROM sampx/ubuntu-jdk8-ssh
+LABEL MAINTAINER=xuyf75@chinaunicom.cn
+
+WORKDIR /root
+
+ADD /soft/hbase-1.2.7-bin.tar.gz /opt/
+
+ADD data/hbase-create.hbase /root/
+
+ENV HBASE_HOME /opt/hbase-1.2.7
+ENV PATH $PATH:$HBASE_HOME/bin

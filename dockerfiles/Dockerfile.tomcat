@@ -1,0 +1,10 @@
+FROM sampx/ubuntu-jdk8-ssh
+LABEL MAINTAINER=xuyf75@chinaunicom.cn
+
+WORKDIR /root
+
+ADD /soft/apache-tomcat-8.5.34.tar.gz /opt/
+
+ENV TOMCAT_HOME /opt/apache-tomcat-8.5.34
+
+ENV PATH $PATH:$TOMCAT_HOME/bin

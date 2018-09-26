@@ -1,0 +1,16 @@
+FROM sampx/ubuntu-jdk8-ssh
+LABEL MAINTAINER=xuyf75@chinaunicom.cn
+
+WORKDIR /root
+
+ADD /soft/hadoop-2.7.6.tar.gz /opt/
+
+ENV HADOOP_HOME /opt/hadoop-2.7.6
+ENV PATH $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+RUN mkdir -p /opt/hadoop-2.7.6/tmp
+RUN mkdir -p /opt/hadoop-2.7.6/hdfs/name
+RUN mkdir -p /opt/hadoop-2.7.6/hdfs/data
+
+VOLUME /opt/hadoop-2.7.6/hdfs
+

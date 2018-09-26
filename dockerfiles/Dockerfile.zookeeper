@@ -1,0 +1,14 @@
+FROM sampx/ubuntu-jdk8-ssh
+LABEL MAINTAINER=xuyf75@chinaunicom.cn
+
+WORKDIR /root
+
+ADD /soft/zookeeper-3.4.10.tar.gz /opt/
+
+RUN mkdir -p /opt/zookeeper-3.4.10/data
+RUN mkdir -p /opt/zookeeper-3.4.10/logs
+
+VOLUME /opt/zookeeper-3.4.10/data
+
+ENV ZK_HOME /opt/zookeeper-3.4.10
+ENV PATH $PATH:$ZK_HOME/bin
